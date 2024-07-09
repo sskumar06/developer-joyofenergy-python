@@ -19,7 +19,7 @@ class PricePlanService:
         readings = self.electricity_reading_service.retrieve_readings_for(smart_meter_id)
         if len(readings) < 1:
             return []
-
+        # print(readings)
         average = self.calculate_average_reading(readings)
         time_elapsed = calculate_time_elapsed(readings)
         consumed_energy = average / time_elapsed

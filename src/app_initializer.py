@@ -18,12 +18,14 @@ NUM_READINGS_AGAINST_METER = 5
 def populate_random_electricity_readings():
     for index in range(NUM_METERS):
         smartMeterId = f"smart-meter-{index}"
+        print(smartMeterId)
         electricity_reading_service.store_reading(
             {
                 "smartMeterId": smartMeterId,
                 "electricityReadings": generate_electricity_readings(NUM_READINGS_AGAINST_METER),
             }
         )
+    print(electricity_reading_service.retrieve_readings_for('smart-meter-4'))
 
 
 def populate_price_plans():

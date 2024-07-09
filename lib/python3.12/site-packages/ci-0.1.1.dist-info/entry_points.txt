@@ -1,0 +1,3 @@
+[console_scripts]
+ci = ci:cli
+

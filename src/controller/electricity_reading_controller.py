@@ -34,3 +34,4 @@ def read(smart_meter_id: str = Path(openapi_examples=OPENAPI_EXAMPLES)):
         raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="No readings found")
     else:
         return [r.to_json() for r in readings]
+

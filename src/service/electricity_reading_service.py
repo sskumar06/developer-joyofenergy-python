@@ -11,4 +11,7 @@ class ElectricityReadingService:
         return self.electricity_reading_repository.store(json["smartMeterId"], readings)
 
     def retrieve_readings_for(self, smart_meter_id):
-        return self.electricity_reading_repository.find(smart_meter_id)
+        try:
+            return self.electricity_reading_repository.find(smart_meter_id)
+        except:
+            return ["Meter Not Found"]

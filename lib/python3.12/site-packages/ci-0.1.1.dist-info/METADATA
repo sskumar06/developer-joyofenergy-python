@@ -1,0 +1,91 @@
+Metadata-Version: 2.1
+Name: ci
+Version: 0.1.1
+Summary: Easily run common CI tasks for Python builds.
+Home-page: https://github.com/rossmacarthur/python-ci
+Author: Ross MacArthur
+Author-email: ross@macarthur.io
+License: MIT
+Download-URL: https://github.com/rossmacarthur/python-ci/archive/0.1.1.tar.gz
+Project-URL: Issue Tracker, https://github.com/rossmacarthur/python-ci/issues
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*
+Description-Content-Type: text/markdown
+Requires-Dist: click
+Provides-Extra: dev.lint
+Requires-Dist: flake8 (>=3.7.0) ; extra == 'dev.lint'
+Requires-Dist: flake8-comprehensions ; extra == 'dev.lint'
+Requires-Dist: flake8-docstrings ; extra == 'dev.lint'
+Requires-Dist: flake8-isort ; extra == 'dev.lint'
+Requires-Dist: flake8-mutable ; extra == 'dev.lint'
+Requires-Dist: flake8-pep3101 ; extra == 'dev.lint'
+Requires-Dist: flake8-quotes ; extra == 'dev.lint'
+Requires-Dist: pep8-naming ; extra == 'dev.lint'
+Provides-Extra: dev.test
+Requires-Dist: pytest (>=3.6.0) ; extra == 'dev.test'
+Requires-Dist: pytest-cov ; extra == 'dev.test'
+Requires-Dist: mock ; extra == 'dev.test'
+
+# ci
+
+[![PyPI Version](https://img.shields.io/pypi/v/ci.svg?style=flat-square&colorB=4c1)][pypi]
+[![Build Status](https://img.shields.io/travis/rossmacarthur/python-ci/master.svg?style=flat-square)][travis]
+[![Code Coverage](https://img.shields.io/codecov/c/github/rossmacarthur/python-ci.svg?style=flat-square)][codecov]
+
+Easily run common CI tasks for Python builds.
+
+## Getting started
+
+Install this package with
+
+```bash
+pip install ci
+```
+
+## Example usage
+
+Here are some examples of how you would use the `ci` tool.
+
+Run `flake8` on Python 2.7 only
+```
+ci --skip 2.7 flake8
+```
+
+Run `pip install codecov` on Python 3.x.x only
+```
+ci --only 3 pip install codecov
+```
+
+Run `codecov` on Python 3.7.2 only
+```
+ci --only 3.7.2 codecov
+```
+
+If for some reason you are running a command that takes the same options as this
+tool then you can use two dashes `--` to specify that this tool should no longer
+match options:
+```
+ci --only 3 -- git --version
+```
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE] file.
+
+[LICENSE]: LICENSE
+[pypi]: https://pypi.org/project/ci/
+[travis]: https://travis-ci.org/rossmacarthur/python-ci
+[codecov]: https://codecov.io/gh/rossmacarthur/python-ci
+
+
